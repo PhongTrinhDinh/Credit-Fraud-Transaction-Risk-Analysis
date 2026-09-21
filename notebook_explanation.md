@@ -22,7 +22,7 @@ The first step is to thoroughly understand the characteristics of the `credit_ca
 - Apply **One-Hot Encoding** (`pd.get_dummies` with `drop_first=True`) for categorical variables to avoid the Dummy Variable Trap.
 - Visualize the **Correlation Matrix** using a Heatmap to eliminate multicollinear variables (highly correlated features), allowing the model to focus on the most important characteristics.
 
-![Correlation Matrix](<figures/Correlation Matrix.png>)
+![Correlation Matrix](<figures/Correlation matrix.png>)
 
 ---
 
@@ -44,7 +44,7 @@ Instead of simply filtering outliers using z-scores, the notebook applies the **
   - **PR-AUC (Precision-Recall Area Under Curve):** The gold standard metric for imbalanced data.
   - **Feature Importances:** Analyzing which factors (e.g., `velocity_score`, `is_foreign_transaction`) contribute the most to the decision to block a transaction.
 
-![Confusion Matrix](<figures/Confusion Matrix.png>)
+![Confusion Matrix](<figures/Confusion matrix.png>)
 ![PR Curve and Features Importances](<figures\P-R Curve Comparision and Features Importances.png>)
 
 ---
@@ -61,7 +61,7 @@ Instead of selecting a default probability threshold (Threshold = 0.5) to block 
 
 The notebook ran a test loop from threshold `0.01` to `0.99` to plot a U-shaped Cost Curve. The bottom of the U-shape represents the **Optimal Threshold** - where the total financial damage in USD is minimized.
 
-![Cost Curve](<figures/Cost-Benefit Analysis.png>)
+![Cost Curve](<figures\Cost-Benefit Analysis.png>)
 
 ---
 
