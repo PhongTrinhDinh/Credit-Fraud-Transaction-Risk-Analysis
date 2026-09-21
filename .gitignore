@@ -20,7 +20,7 @@ ENV/
 
 # Model artifacts and training outputs
 artifacts/
-models/
+#models/
 checkpoints/
 weights/
 *.pkl
