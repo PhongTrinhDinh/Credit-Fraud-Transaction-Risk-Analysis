@@ -10,9 +10,9 @@ The first step is to thoroughly understand the characteristics of the `credit_ca
 - **Target Distribution:** Financial fraud data is always in a state of **extreme class imbalance**. Fraudulent transactions (Fraud = 1) typically account for less than 1% of total transactions. Relying on Accuracy as an evaluation metric would lead to significant errors.
 
 - **Numerical Features Distribution:** By visualizing with `seaborn.histplot`, we observe the dispersion of risk factors such as `amount_usd`, `velocity_score`, and `distance_from_home_km`.
-![Numerical Features Distribution](<figures/Distribution of Numerical Features.png>)
+![Numerical Features Distribution](figures/Distribution%20of%20Numerical%20Features.png)
 - **Categorical Features Distribution:** Analyzing user behavior based on `device_type`, `card_type`, and `merchant_category`.
-![Categorical Features Distribution](<figures/Distribution of Categorical Features.png>)
+![Categorical Features Distribution](figures/Distribution%20of%20Categorical%20Features.png)
 
 ---
 
@@ -22,7 +22,7 @@ The first step is to thoroughly understand the characteristics of the `credit_ca
 - Apply **One-Hot Encoding** (`pd.get_dummies` with `drop_first=True`) for categorical variables to avoid the Dummy Variable Trap.
 - Visualize the **Correlation Matrix** using a Heatmap to eliminate multicollinear variables (highly correlated features), allowing the model to focus on the most important characteristics.
 
-![Correlation Matrix](<figures/Correlation matrix.png>)
+![Correlation Matrix](figures/Correlation%20matrix.png)
 
 ---
 
@@ -31,7 +31,7 @@ The first step is to thoroughly understand the characteristics of the `credit_ca
 Instead of simply filtering outliers using z-scores, the notebook applies the **Isolation Forest** algorithm on a set of critical features: `amount_usd`, `account_balance_usd`, `distance_from_home_km`, and `velocity_score`.
 - **Significance:** A $10,000 transaction might be normal for a wealthy individual. However, if it occurs 500km away from home, and the card was swiped in another country just 1 hour ago, it becomes a Multivariate Outlier. Isolation Forest helps isolate this group before feeding the data into the prediction model.
 
-![Outlier Detection](<figures\Transaction analysis and anomaly detection.png>)
+![Outlier Detection](figures/Transaction%20analysis%20and%20anomaly%20detection.png)
 
 ---
 
@@ -44,8 +44,8 @@ Instead of simply filtering outliers using z-scores, the notebook applies the **
   - **PR-AUC (Precision-Recall Area Under Curve):** The gold standard metric for imbalanced data.
   - **Feature Importances:** Analyzing which factors (e.g., `velocity_score`, `is_foreign_transaction`) contribute the most to the decision to block a transaction.
 
-![Confusion Matrix](<figures/Confusion matrix.png>)
-![PR Curve and Features Importances](<figures\P-R Curve Comparision and Features Importances.png>)
+![Confusion Matrix](figures/Confusion%20matrix.png)
+![PR Curve and Features Importances](figures/P-R%20Curve%20Comparision%20and%20Features%20Importances.png)
 
 ---
 
@@ -61,7 +61,7 @@ Instead of selecting a default probability threshold (Threshold = 0.5) to block 
 
 The notebook ran a test loop from threshold `0.01` to `0.99` to plot a U-shaped Cost Curve. The bottom of the U-shape represents the **Optimal Threshold** - where the total financial damage in USD is minimized.
 
-![Cost Curve](<figures\Cost-Benefit Analysis.png>)
+![Cost Curve](figures/Cost-Benefit%20Analysis.png)
 
 ---
 
@@ -73,7 +73,7 @@ To maximize the defense level, XGBoost is automatically fine-tuned using the **O
   - *If the model misses a $50,000 transaction -> Extremely heavy penalty.*
 - Optuna searches through 30 Trials to find the set of hyperparameters (learning_rate, max_depth, n_estimators, gamma) that yields the highest PR-AUC score.
 
-![Confusion Matrix with Tuned XGBoost model](<figures\Confusion matrix - Tuned XGBoost.png>)
+![Confusion Matrix with Tuned XGBoost model](figures/Confusion%20matrix%20-%20Tuned%20XGBoost.png)
 ---
 
 ## 7. Production Automation Report
