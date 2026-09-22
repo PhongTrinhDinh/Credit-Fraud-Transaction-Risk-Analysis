@@ -10,6 +10,13 @@ An end-to-end, production-ready Machine Learning system designed to detect fraud
 
 ---
 
+## 📊 Dataset
+
+The dataset used for training this model is available on Kaggle:
+[Credit Card Fraud and Transaction Risk Dataset](https://www.kaggle.com/datasets/srisyra02/credit-card-fraud-and-transaction-risk)
+
+---
+
 ## ✨ Key Features
 
 - **Cost-Sensitive Optimization**: Custom sample weights dynamically penalize false negatives (fraud escaping detection) heavily while controlling false positives to minimize customer churn.
